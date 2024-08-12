@@ -2,7 +2,7 @@ library(shiny)
 library(useself)
 
 generate_story <- function(noun, verb, adjective, adverb) {
-  cat(paste0("➡️ User input ", strrep("-", 15), "\n"), file = stderr())
+  cat(paste0("ℹ️ User input ", strrep("-", 15), "\n"), file = stderr())
   args <- c(
     "noun" = noun, 
     "verb" = verb, 
@@ -10,7 +10,8 @@ generate_story <- function(noun, verb, adjective, adverb) {
     "adverb" = adverb
   )
   for(i in seq_along(args)){
-    cat(glue::glue("    ➡️ {names(args)[i]}: {args[[i]]} \\n"), file = stderr())
+    cat(glue::glue("    🔘 {names(args)[i]}: {args[[i]]}"), file = stderr())
+    cat("\n", file = stderr())
   }
   
   glue::glue("
