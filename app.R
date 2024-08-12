@@ -2,10 +2,21 @@ library(shiny)
 library(useself)
 
 generate_story <- function(noun, verb, adjective, adverb) {
+  cat(paste0("➡️ User input ", strrep("-", 15), "\n"), file = stderr())
+  args <- c(
+    "noun" = noun, 
+    "verb" = verb, 
+    "adjective" = adjective, 
+    "adverb" = adverb
+  )
+  for(i in seq_along(args)){
+    cat(glue::glue("    ➡️ {names(args)[i]}: {args[[i]]} \\n"), file = stderr())
+  }
+  
   glue::glue("
     Once upon a time, there was a {adjective} {noun} who loved to
     {verb} {adverb}. It was the funniest thing ever!
-  ")
+  ") 
 }
 
 ui <- fluidPage(
