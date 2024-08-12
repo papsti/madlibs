@@ -9,12 +9,13 @@ generate_story <- function(noun, verb, adjective, adverb) {
 
 ui <- fluidPage(
   titlePanel("Mad Libs Game"),
+  p("Enter your input below to generate a new story!"),
   sidebarLayout(
     sidebarPanel(
-      textInput("noun1", "Enter a noun:", ""),
-      textInput("verb", "Enter a verb:", ""),
-      textInput("adjective", "Enter an adjective:", ""),
-      textInput("adverb", "Enter an adverb:", ""),
+      textInput("noun1", "A noun:", ""),
+      textInput("verb", "A verb:", ""),
+      textInput("adjective", "An adjective:", ""),
+      textInput("adverb", "An adverb:", ""),
       actionButton("submit", "Create Story")
     ),
     mainPanel(
