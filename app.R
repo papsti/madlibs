@@ -1,8 +1,9 @@
 library(shiny)
 library(useself)
+library(logger)
 
 generate_story <- function(noun, verb, adjective, adverb) {
-  cat(paste0("ℹ️ User input ", strrep("-", 15), "\n"), file = stderr())
+  log_info("ℹ️ User input", strrep("-", 15), "\n")
   args <- c(
     "noun" = noun, 
     "verb" = verb, 
@@ -10,8 +11,7 @@ generate_story <- function(noun, verb, adjective, adverb) {
     "adverb" = adverb
   )
   for(i in seq_along(args)){
-    cat(glue::glue("    🔘 {names(args)[i]}: {args[[i]]}"), file = stderr())
-    cat("\n", file = stderr())
+    log_info("    🔘 {names(args)[i]}: {args[[i]]}\n")
   }
   
   glue::glue("
